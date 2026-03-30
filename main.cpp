@@ -1,10 +1,9 @@
 #include "raylib.h"
-#include "data.cpp"
 #include "board.cpp"
 
 
-constexpr int SCREEN_W = CELL_W * 9 + BIG_CELL_SIZE * 2;
-constexpr int SCREEN_H = CELL_H * 13;
+constexpr int SCREEN_W = CELL_W * 11;
+constexpr int SCREEN_H = CELL_H * 11;
 
 class Game {
 public:

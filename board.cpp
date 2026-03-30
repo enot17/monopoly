@@ -4,9 +4,9 @@
 
 constexpr int FONT_SIZE = 30;
 constexpr int BIG_FONT_SIZE = FONT_SIZE * 2;
-constexpr int CELL_W = 120;
-constexpr int CELL_H = CELL_W * 0.5;
-constexpr int BIG_CELL_SIZE = CELL_W * 2;
+constexpr int CELL_W = 160;
+constexpr int CELL_H = CELL_W / 2;
+constexpr int BIG_CELL_SIZE = CELL_W;
 constexpr int CELL_COUNT = 40;
 constexpr int ROW_COUNT = 9;
 constexpr int OPP_W = CELL_W * ROW_COUNT + BIG_CELL_SIZE;
@@ -18,7 +18,7 @@ enum class CellType {
 };
 
 Color cellColors[] = {
-        WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE,
+        WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE,
         BROWN, SKYBLUE, PINK, ORANGE, RED, YELLOW, GREEN, BLUE
 };
 
@@ -153,9 +153,7 @@ public:
         int index = 0;
         //down right
         DrawRectangleLines(OPP_W, OPP_H, BIG_CELL_SIZE, BIG_CELL_SIZE, BLACK);
-        DrawText(TextFormat("%i", index), OPP_W + CELL_W - 50, OPP_H + (CELL_H / 2 - FONT_SIZE), BIG_FONT_SIZE,
-                 BLACK);
-
+        DrawText(TextFormat("%i", index), OPP_W, OPP_H, BIG_FONT_SIZE, BLACK);
         //down
         for (int i = 1; i <= ROW_COUNT; i++) {
             index++;
@@ -163,29 +161,39 @@ public:
             DrawRectangleLines(OPP_W - (CELL_W * i), OPP_H, CELL_W, CELL_H, BLACK);
             DrawText(TextFormat("%i", index), OPP_W - (CELL_W * i), OPP_H, FONT_SIZE, BLACK);
         }
-
         //down left
         index++;
         DrawRectangleLines(0, OPP_H, BIG_CELL_SIZE, BIG_CELL_SIZE, BLACK);
-        DrawText(TextFormat("%i", index), OPP_W + CELL_W - 50, OPP_H + (CELL_H / 2 - FONT_SIZE), BIG_FONT_SIZE,
-                 BLACK);
-
+        DrawText(TextFormat("%i", index), 0, OPP_H, BIG_FONT_SIZE, BLACK);
         //left
-        for (int i = 1; i < ROW_COUNT; i++) {
+        for (int i = 1; i <= ROW_COUNT; i++) {
             index++;
-            DrawRectangle(0,CELL_H + CELL_W * i , CELL_W, CELL_H, cellColorByCellType(groups[index]));
+            DrawRectangle(0, OPP_H - (CELL_H * i), CELL_W, CELL_H, cellColorByCellType(groups[index]));
             DrawRectangleLines(0, OPP_H - (CELL_H * i), CELL_W, CELL_H, BLACK);
             DrawText(TextFormat("%i", index), 0, OPP_H - (CELL_H * i), FONT_SIZE, BLACK);
         }
-//
-//        for (int i = 0; i < ROW_COUNT; i++) {
-//            DrawRectangleLines(0, CELL_H + CELL_W * i, CELL_H, CELL_W, BLACK);
-//        }
-//        for (int i = 0; i < ROW_COUNT; i++) {
-//            DrawRectangleLines(OPP_SIDE, CELL_H + CELL_W * i, CELL_H, CELL_W, BLUE);
-//        }
-//
-//        DrawRectangleLines(0, 0, CELL_H, CELL_H, BLACK);
-//        DrawRectangleLines(0, OPP_SIDE, CELL_H, CELL_H, BLACK);
+        //up left
+        index++;
+        DrawRectangleLines(0, OPP_H, BIG_CELL_SIZE, BIG_CELL_SIZE, BLACK);
+        DrawText(TextFormat("%i", index), 0, OPP_H, BIG_FONT_SIZE, BLACK);
+        //up
+        for (int i = 0; i < ROW_COUNT; i++) {
+            index++;
+            DrawRectangle(BIG_CELL_SIZE + CELL_W * i, 0, CELL_W, CELL_H, cellColorByCellType(groups[index]));
+            DrawRectangleLines(BIG_CELL_SIZE + CELL_W * i, 0, CELL_W, CELL_H, BLACK);
+            DrawText(TextFormat("%i", index), BIG_CELL_SIZE + CELL_W * i, 0, FONT_SIZE, BLACK);
+        }
+        //up right
+        index++;
+        DrawRectangleLines(0, OPP_H, BIG_CELL_SIZE, BIG_CELL_SIZE, BLACK);
+        DrawText(TextFormat("%i", index), 0, OPP_H, BIG_FONT_SIZE, BLACK);
+        //right
+        for (int i = 1; i <= ROW_COUNT; i++) {
+            index++;
+            DrawRectangle(OPP_W, CELL_H * i, CELL_W, CELL_H, cellColorByCellType(groups[index]));
+            DrawRectangleLines(OPP_W, CELL_H * i, CELL_W, CELL_H, BLACK);
+            DrawText(TextFormat("%i", index), OPP_W, CELL_H * i, FONT_SIZE, BLACK);
+        }
+
     }
 };
