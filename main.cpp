@@ -1,24 +1,8 @@
 #include "raylib.h"
-#include "board.cpp"
-
+#include "game.cpp"
 
 constexpr int SCREEN_W = CELL_W * 11;
 constexpr int SCREEN_H = CELL_H * 11;
-
-class Game {
-public:
-    Board b;
-
-    Game(){}
-
-    void update() {
-        b.update();
-    }
-
-    void draw() {
-        b.draw();
-    }
-};
 
 int main() {
     InitWindow(SCREEN_W, SCREEN_H, "Monopoly");

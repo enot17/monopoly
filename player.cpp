@@ -1,12 +1,23 @@
 #pragma once
+#include "raylib.h"
 
+Color playersColor[4] = {RED,BLUE,GREEN,PINK};
 
 class Player {
 public:
     int money = 1500;
-    int placeIndex = 0;
+    int cellIndex = 0;
 
-    Player()
+    Player()=default;
+
+    void update(){
+
+    }
+
+    void draw(){
+        
+    }
+
 
 };
 
