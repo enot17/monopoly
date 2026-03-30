@@ -152,8 +152,8 @@ public:
     void draw() {
         int index = 0;
         //down right
-        DrawRectangleLines(OPP_W, OPP_H, BIG_CELL_SIZE, BIG_CELL_SIZE, BLACK);
-        DrawText(TextFormat("%i", index), OPP_W, OPP_H, BIG_FONT_SIZE, BLACK);
+        DrawRectangleLines(OPP_W, OPP_H, CELL_W, CELL_H, BLACK);
+        DrawText(TextFormat("%i", index), OPP_W, OPP_H, FONT_SIZE, BLACK);
         //down
         for (int i = 1; i <= ROW_COUNT; i++) {
             index++;
@@ -163,8 +163,8 @@ public:
         }
         //down left
         index++;
-        DrawRectangleLines(0, OPP_H, BIG_CELL_SIZE, BIG_CELL_SIZE, BLACK);
-        DrawText(TextFormat("%i", index), 0, OPP_H, BIG_FONT_SIZE, BLACK);
+        DrawRectangleLines(0, OPP_H, CELL_W, CELL_H, BLACK);
+        DrawText(TextFormat("%i", index), 0, OPP_H, FONT_SIZE, BLACK);
         //left
         for (int i = 1; i <= ROW_COUNT; i++) {
             index++;
@@ -174,8 +174,8 @@ public:
         }
         //up left
         index++;
-        DrawRectangleLines(0, OPP_H, BIG_CELL_SIZE, BIG_CELL_SIZE, BLACK);
-        DrawText(TextFormat("%i", index), 0, OPP_H, BIG_FONT_SIZE, BLACK);
+        DrawRectangleLines(0, 0, CELL_W, CELL_H, BLACK);
+        DrawText(TextFormat("%i", index), 0, 0, FONT_SIZE, BLACK);
         //up
         for (int i = 0; i < ROW_COUNT; i++) {
             index++;
@@ -185,8 +185,8 @@ public:
         }
         //up right
         index++;
-        DrawRectangleLines(0, OPP_H, BIG_CELL_SIZE, BIG_CELL_SIZE, BLACK);
-        DrawText(TextFormat("%i", index), 0, OPP_H, BIG_FONT_SIZE, BLACK);
+        DrawRectangleLines(OPP_W, OPP_H, CELL_W, CELL_H, BLACK);
+        DrawText(TextFormat("%i", index), OPP_W, 0, FONT_SIZE, BLACK);
         //right
         for (int i = 1; i <= ROW_COUNT; i++) {
             index++;
@@ -194,6 +194,5 @@ public:
             DrawRectangleLines(OPP_W, CELL_H * i, CELL_W, CELL_H, BLACK);
             DrawText(TextFormat("%i", index), OPP_W, CELL_H * i, FONT_SIZE, BLACK);
         }
-
     }
 };
