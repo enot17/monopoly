@@ -3,6 +3,7 @@
 
 #include "board.cpp"
 #include "player.cpp"
+#include "card.cpp"
 #include "raylib.h"
 
 
