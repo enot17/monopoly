@@ -1,6 +1,16 @@
 #pragma once
 
-class Card{
+
+class Card {
 public:
-    int index = 0;
+    char *description = nullptr;
+
+    void (*action)(Player &p) = nullptr;
+
+    Card() = default;
+
+    Card(char *str, void (*act)(Player &p)) {
+        description = str;
+        action = act;
+    }
 };

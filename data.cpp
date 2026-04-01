@@ -5,6 +5,13 @@
 
 using std::string;
 
+char* chanceCardDescriptions = {
+
+};
+
+char* chestCardDescription = {
+
+};
 
 string cellNamesEng[CELL_COUNT] = {
         "Start",

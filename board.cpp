@@ -3,7 +3,6 @@
 #include "raylib.h"
 
 constexpr int FONT_SIZE = 30;
-constexpr int BIG_FONT_SIZE = FONT_SIZE * 2;
 constexpr int CELL_W = 160;
 constexpr int CELL_H = CELL_W / 2;
 constexpr int BIG_CELL_SIZE = CELL_W;
@@ -11,7 +10,6 @@ constexpr int CELL_COUNT = 40;
 constexpr int ROW_COUNT = 9;
 constexpr int OPP_W = CELL_W * ROW_COUNT + BIG_CELL_SIZE;
 constexpr int OPP_H = CELL_H * (ROW_COUNT + 1);
-constexpr int CELL_SIZE = CELL_W + CELL_H;
 
 enum class CellType {
     none, start, chest, pay, station, utility, jail, chance, pr1 = 10, pr2, pr3, pr4, pr5, pr6, pr7, pr8
