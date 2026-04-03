@@ -1,15 +1,46 @@
 #pragma once
 
+#include "raylib.h"
+
+
+Color colors[2] = {PINK, GRAY};
+constexpr int FONT_LEN = 10;
+constexpr int FONT_OFFSET = 10;
+
+enum class State {
+    normal, press
+};
+
 class Button {
 public:
+    bool visible = true;
     int x;
     int y;
     int w;
     int h;
-
-    void (*click)() = nullptr;
+    State state = State::normal;
+    void (*click)(Player &p) = nullptr;
+    char *name;
 
     Button() = default;
 
-    Button(int x, int y, int w, int h, void (&click)()) : x(x), y(y), w(w), h(h), click(click) {};
+    Button(char *name, int x, int y, int w, int h, void (*click)(Player &p)) {
+        this->name = name;
+        this->x = x;
+        this->y = y;
+        this->w = w;
+        this->h = h;
+        this->click = click;
+    };
+
+    void draw() {
+        DrawRectangle(x, y, w, h, colors[0]);
+        DrawText(name, x + FONT_OFFSET, y + FONT_OFFSET, 20, BLACK);
+    }
+
 };
+
+
+void rollDiceClick(Player &p) {
+    int a = GetRandomValue(1, 6) + GetRandomValue(1, 6);
+}

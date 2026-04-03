@@ -6,10 +6,14 @@ constexpr int PLAYER_SIZE = 40;
 
 class Player {
 public:
-    int money = 1500;
+    int money;
     int cellIndex = 0;
 
     Player() = default;
+
+    void input(){
+
+    }
 
     void update() {
 
