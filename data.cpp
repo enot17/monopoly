@@ -5,11 +5,26 @@
 
 using std::string;
 
-char* chanceCardDescriptions = {
+class Point {
+public:
+    Point() = default;
+
+    int x = 0;
+    int y = 0;
+};
+
+char *inGameText[] = {
+        "Monopoly",
+        "1 Player turn",
+        "Roll Dice",
+        "Turn"
+};
+
+char *chanceCardDescriptions = {
 
 };
 
-char* chestCardDescription = {
+char *chestCardDescription = {
 
 };
 

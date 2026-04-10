@@ -2,7 +2,7 @@
 
 #include "raylib.h"
 
-constexpr int FONT_SIZE = 30;
+constexpr short FONT_SIZE = 30;
 constexpr int CELL_W = 160;
 constexpr int CELL_H = CELL_W / 2;
 constexpr int BIG_CELL_SIZE = CELL_W;

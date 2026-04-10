@@ -5,7 +5,7 @@
 
 Color colors[2] = {PINK, GRAY};
 constexpr int FONT_LEN = 10;
-constexpr int FONT_OFFSET = 10;
+constexpr int PADDING = 10;
 
 enum class State {
     normal, press
@@ -35,7 +35,7 @@ public:
 
     void draw() {
         DrawRectangle(x, y, w, h, colors[0]);
-        DrawText(name, x + FONT_OFFSET, y + FONT_OFFSET, 20, BLACK);
+        DrawText(name, x + PADDING, y + PADDING, 20, BLACK);
     }
 
 };

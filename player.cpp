@@ -2,26 +2,26 @@
 
 #include "raylib.h"
 
-constexpr int PLAYER_SIZE = 40;
+constexpr int PLAYER_SIZE = 10;
 
 class Player {
 public:
+    Point place;
     int money;
-    int cellIndex = 0;
+    int number;
+    int cellIndex;
 
     Player() = default;
 
-    void input(){
-
-    }
-
-    void update() {
-
+    void update(Point &p) {
+        place.x = p.x;
+        place.y = p.y;
     }
 
     void draw(Color &color) {
-        DrawCircle(cellIndex - 0, cellIndex - 10, PLAYER_SIZE, color);
+        DrawCircle(place.x, place.y, PLAYER_SIZE, color);
     }
+
 };
 
 class Computer : public Player {
